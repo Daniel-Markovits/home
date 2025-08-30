@@ -1,1 +1,29 @@
+<style>
+  /* Minimal, self-contained styles (safe to keep here or move into styles.css) */
+  .abstract-dd { margin: 1rem 0; }
+  .abstract-dd summary {
+    list-style: none;                 /* hide default marker */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .abstract-dd summary::-webkit-details-marker { display: none; }
 
+  /* Draw a small chevron */
+  .abstract-dd summary::after {
+    content: "";
+    width: 10px; height: 10px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);         /* ▼ */
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+  .abstract-dd[open] summary::after {
+    transform: rotate(-135deg);       /* ▲ */
+  }
+
+  .abstract-dd__content { margin-top: 0.5rem; }
+</style>
